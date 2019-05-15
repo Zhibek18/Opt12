@@ -1,15 +1,15 @@
-package opt22;
+package Opt12;
 import java.util.Scanner;
 
 public class Array implements Cloneable{
 	private int[] arr;
 	private int[] lengthArr;
 
-	public Array(final int N){
+	public Array(final int N){	//constructor
 		arr = new int[N];
 		lengthArr = new int[N];
 	}
-	public void setArr(int i, int elem){
+	public void setArr(int i, int elem){ // also calculates number of digits
 		arr[i] = elem;
 		lengthArr[i] = String.valueOf(Math.abs(elem)).length();
 	}
@@ -23,14 +23,14 @@ public class Array implements Cloneable{
 			setArr(i, scan.nextInt());
 		}
 	}
-	public void printArray(){
+	public void printArray(){ // also prints length in brackets
 		for (int i = 0; i < arr.length; i++){
 			System.out.print(arr[i]+"("+lengthArr[i]+")"+" ");
 		}
 		System.out.println();
 	}
 
-	public void printShortest(){
+	public void printShortest(){	//prints the sortest number in array
 		int minLength = lengthArr[0];
 		int shortest = arr[0];
 		for (int i = 1; i < arr.length; i++){
@@ -41,7 +41,7 @@ public class Array implements Cloneable{
 		}
 		System.out.println("Shortest: " + shortest + "(" + minLength + ")");
 	}
-	public void printLongest(){
+	public void printLongest(){ // //prints the longest number in array
 		int maxLength = lengthArr[0];
 		int longest = arr[0];
 		for (int i = 1; i < arr.length; i++){
@@ -53,7 +53,7 @@ public class Array implements Cloneable{
 		System.out.println("Longest: " + longest + "(" + maxLength + ")");
 	}
 	
-	public void printSortedByLength(){
+	public void printSortedByLength(){ // sorts array by length of numbers and prints
 		int tmp;
 		boolean isNotSorted = true;
 		while (isNotSorted){
@@ -71,7 +71,7 @@ public class Array implements Cloneable{
 		printArray();
 	}
 
-	public void printShorterThanAverage(){
+	public void printShorterThanAverage(){	//calculates average length and prints all shorter numbers
 		int lengthSum = 0;
 		for (int i = 0; i < arr.length; i++){
 			lengthSum += lengthArr[i];
@@ -86,7 +86,7 @@ public class Array implements Cloneable{
 		System.out.println();
 	}
 
-	public int[] getIntDigitsArray(int a){
+	public int[] getIntDigitsArray(int a){	//calculates number of digits in a
 		int length = String.valueOf(Math.abs(a)).length();
 	 	int[] digits = new int[length];
 	 	for (int l = length - 1; l >= 0; l--){
@@ -95,7 +95,7 @@ public class Array implements Cloneable{
 	 	}
 	 	return digits;
 	}
-	public void printIncreasingDigits(){
+	public void printIncreasingDigits(){ //prints the first number in array with increasing digits sequence
 		boolean isDecreasing;
 		for (int i = 0; i < arr.length; i++){
 			if (lengthArr[i] > 1){
@@ -117,7 +117,7 @@ public class Array implements Cloneable{
 
 	}
 
-	public Object clone(){
+	public Object clone(){ //for clonable interface
 		Array copy = null;
 		try{
 			copy = (Array)super.clone();
