@@ -1,4 +1,4 @@
-package Opt12;
+package Opt12.kakimzhanova.opt2.array;
 import java.util.Scanner;
 
 public class Array implements Cloneable{
